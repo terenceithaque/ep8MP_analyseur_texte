@@ -186,3 +186,20 @@ while option != 0:
     while option not in range(1, 7):
         print("Option invalide")
         option = int(input("Choisissez l'une des options ci-dessus en saisissant son numéro : "))
+
+
+## Vérifications
+
+
+### Test 1 - Normalisation ###
+text = "Bonjour Python"
+assert normalize_text(text) == "bonjour python"
+
+### Test 2 - comptage ###
+assert count_letter("Banana", "a") == 3
+
+### Test 3 - palindrome ###
+assert is_palindrome("Radar")
+
+### Test 4 - texte vide ###
+assert count_words("") == 0

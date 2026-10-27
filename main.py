@@ -67,6 +67,18 @@ def count_vowels(text:str) -> int:
     return nb_vow
 
 
+def count_words(text:str) -> int:
+    """Renvoie le nombre de mots trouvés dans le texte passé en paramètre."""
+
+    normalized_text = normalize_text(text) # Normaliser le texte
+
+    if len(normalized_text) == 0:
+        return 0
+
+    else:
+        # Le nombre de mots correspond au nombre d'espaces trouvés auquel on ajoute 1
+        return count_letter(text, " ") + 1
+
 
 # Demander une chaîne de caractères initiale à l'utilisateur
 chaine = input("Saisissez un texte : ")

@@ -80,6 +80,17 @@ def count_words(text:str) -> int:
         return count_letter(text, " ") + 1
 
 
+def reverse_text(text:str) -> str:
+    """Renvoie le texte avec les lettres inversées par rapport à celui donné en paramètre."""
+
+    texte_inverse = ""
+
+    for i in range(len(text) -1, -1, -1):
+        texte_inverse += text[i]
+
+    return texte_inverse
+
+
 # Demander une chaîne de caractères initiale à l'utilisateur
 chaine = input("Saisissez un texte : ")
 
@@ -111,7 +122,8 @@ elif option == 4:
     print(f"Il y a {resultat} voyelles dans {chaine}.")
 
 elif option == 5:
-    pass
+    resultat = reverse_text(chaine)
+    print(resultat)
 
 elif option == 6:
     pass

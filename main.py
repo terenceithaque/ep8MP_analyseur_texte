@@ -43,6 +43,18 @@ def normalize_text(text:str) -> str:
     return texte_final
 
 
+def count_letter(text:str, letter:str) -> int:
+    """Compte le nombre d'occurences de la lettre letter dans la chaîne de caractères text."""
+
+    nb_occ = 0
+
+    for i in range(len(text)):
+        if text[i] == letter:
+            nb_occ += 1
+
+    return nb_occ
+
+
 
 # Demander une chaîne de caractères initiale à l'utilisateur
 chaine = input("Saisissez un texte : ")
@@ -66,7 +78,9 @@ elif option == 2:
     pass
 
 elif option == 3:
-    pass
+    lettre = input("Saisissez la lettre à compter dans le texte : ")
+    resultat = count_letter(chaine, lettre)
+    print(f"La lettre {lettre} a été trouvée {resultat} fois.")
 
 elif option == 4:
     pass

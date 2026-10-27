@@ -91,6 +91,17 @@ def reverse_text(text:str) -> str:
     return texte_inverse
 
 
+def is_palyndrome(text:str) -> bool:
+    """Renvoie True si le texte donné en paramètre est un palyndrome (se lit de la même manière dans les deux sens de lecture), False sinon."""
+
+    # Normaliser le texte
+    normalized_text = normalize_text(text)
+    reversed_text = reverse_text(normalized_text)
+
+    return normalized_text == reversed_text
+
+
+
 # Demander une chaîne de caractères initiale à l'utilisateur
 chaine = input("Saisissez un texte : ")
 
@@ -126,4 +137,10 @@ elif option == 5:
     print(resultat)
 
 elif option == 6:
-    pass
+    resultat = is_palyndrome(chaine)
+
+    if resultat:
+        print(f"Le mot {chaine} est un palyndrome.")
+
+    else:
+        print(f"Le mot {chaine} n'est pas un palyndrome.")

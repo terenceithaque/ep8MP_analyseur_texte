@@ -6,7 +6,7 @@ def display_menu() -> None:
     """Affiche le menu permettant de choisir une opération à effectuer sur une chaîne de caractères."""
 
 
-    for i in range(1, 7):
+    for i in range(1, 8):
         if i == 1:
             print(f"{i} - Afficher le texte normalisé")
 
@@ -23,7 +23,10 @@ def display_menu() -> None:
             print(f"{i} - Inverser le texte")
 
         elif i == 6:
-            print(f"{i} - Tester si le mot est un palyndrome")
+            print(f"{i} - Tester si le mot est un palindrome")
+
+        elif i == 7:
+            print(f"{i} - Recommencer avec un autre texte")
 
     print("0 - Quitter")
 
@@ -49,7 +52,7 @@ def count_letter(text:str, letter:str) -> int:
     nb_occ = 0
 
     for i in range(len(text)):
-        if text[i] == letter:
+        if text[i].lower() == letter.lower():
             nb_occ += 1
 
     return nb_occ
@@ -137,7 +140,7 @@ display_menu()
 
 option = int(input("Choisissez l'une des options ci-dessus en saisissant son numéro : "))
 
-while option not in range(1, 7) and option != 0:
+while option not in range(1, 8) and option != 0:
     print("Option invalide")
     option = int(input("Choisissez l'une des options ci-dessus en saisissant son numéro : "))
 
@@ -172,18 +175,21 @@ while option != 0:
             print(f"Le mot {chaine} est un palyndrome.")
 
         else:
-            print(f"Le mot {chaine} n'est pas un palyndrome.")
+            print(f"Le mot {chaine} n'est pas un palindrome.")
 
-    print()
-    chaine = input("Saisissez une chaîne de caractères : ")
-    display_menu()
+    
+    
+    elif option == 7:
+        print()
+        chaine = input("Saisissez une chaîne de caractères : ")
+        display_menu()
 
     option = int(input("Choisissez l'une des options ci-dessus en saisissant son numéro : "))
 
     if option == 0:
         break
 
-    while option not in range(1, 7):
+    while option not in range(1, 8):
         print("Option invalide")
         option = int(input("Choisissez l'une des options ci-dessus en saisissant son numéro : "))
 

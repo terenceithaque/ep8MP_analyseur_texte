@@ -142,33 +142,47 @@ while option not in range(1, 7) and option != 0:
     option = int(input("Choisissez l'une des options ci-dessus en saisissant son numéro : "))
 
 
-# Effectuer l'opération choisie par l'utilisateur
+while option != 0:
+    # Effectuer l'opération choisie par l'utilisateur
 
-if option == 1:
-    resultat = normalize_text(chaine)
-    print(resultat)
+    if option == 1:
+        resultat = normalize_text(chaine)
+        print(resultat)
 
-elif option == 2:
-    display_statistics(chaine)
+    elif option == 2:
+        display_statistics(chaine)
 
-elif option == 3:
-    lettre = input("Saisissez la lettre à compter dans le texte : ")
-    resultat = count_letter(chaine, lettre)
-    print(f"La lettre {lettre} a été trouvée {resultat} fois.")
+    elif option == 3:
+        lettre = input("Saisissez la lettre à compter dans le texte : ")
+        resultat = count_letter(chaine, lettre)
+        print(f"La lettre {lettre} a été trouvée {resultat} fois.")
 
-elif option == 4:
-    resultat = count_vowels(chaine)
-    print(f"Il y a {resultat} voyelles dans {chaine}.")
+    elif option == 4:
+        resultat = count_vowels(chaine)
+        print(f"Il y a {resultat} voyelles dans {chaine}.")
 
-elif option == 5:
-    resultat = reverse_text(chaine)
-    print(resultat)
+    elif option == 5:
+        resultat = reverse_text(chaine)
+        print(resultat)
 
-elif option == 6:
-    resultat = is_palindrome(chaine)
+    elif option == 6:
+        resultat = is_palindrome(chaine)
 
-    if resultat:
-        print(f"Le mot {chaine} est un palyndrome.")
+        if resultat:
+            print(f"Le mot {chaine} est un palyndrome.")
 
-    else:
-        print(f"Le mot {chaine} n'est pas un palyndrome.")
+        else:
+            print(f"Le mot {chaine} n'est pas un palyndrome.")
+
+    print()
+    chaine = input("Saisissez une chaîne de caractères : ")
+    display_menu()
+
+    option = int(input("Choisissez l'une des options ci-dessus en saisissant son numéro : "))
+
+    if option == 0:
+        break
+
+    while option not in range(1, 7):
+        print("Option invalide")
+        option = int(input("Choisissez l'une des options ci-dessus en saisissant son numéro : "))

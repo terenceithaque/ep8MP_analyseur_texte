@@ -55,6 +55,18 @@ def count_letter(text:str, letter:str) -> int:
     return nb_occ
 
 
+def count_vowels(text:str) -> int:
+    """Renvoie le nombre de voyelles trouvées dans le texte passé en paramètre."""
+
+    nb_vow = 0
+
+    for lettre in text:
+        if lettre in "aàâäeéèêëiîïoôöuùûüy":
+            nb_vow += 1
+
+    return nb_vow
+
+
 
 # Demander une chaîne de caractères initiale à l'utilisateur
 chaine = input("Saisissez un texte : ")
@@ -83,7 +95,8 @@ elif option == 3:
     print(f"La lettre {lettre} a été trouvée {resultat} fois.")
 
 elif option == 4:
-    pass
+    resultat = count_vowels(chaine)
+    print(f"Il y a {resultat} voyelles dans {chaine}.")
 
 elif option == 5:
     pass

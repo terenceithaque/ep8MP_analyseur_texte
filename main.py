@@ -91,8 +91,8 @@ def reverse_text(text:str) -> str:
     return texte_inverse
 
 
-def is_palyndrome(text:str) -> bool:
-    """Renvoie True si le texte donné en paramètre est un palyndrome (se lit de la même manière dans les deux sens de lecture), False sinon."""
+def is_palindrome(text:str) -> bool:
+    """Renvoie True si le texte donné en paramètre est un palindrome (se lit de la même manière dans les deux sens de lecture), False sinon."""
 
     # Normaliser le texte
     normalized_text = normalize_text(text)
@@ -100,6 +100,34 @@ def is_palyndrome(text:str) -> bool:
 
     return normalized_text == reversed_text
 
+
+def display_statistics(text:str) -> None:
+    """Affiche les statistiques générales du texte passé en paramètre.
+    - Nombre total de caractères
+    - Nombre total de caractères sans compter les espaces
+    - Nombre de mots
+    - Nombre de voyelles
+    - Nombre d'occurences de la lettre 'a'"""
+
+    nb_cars = len(text)
+    print(f"Nombre de caractères : {nb_cars}")
+
+    # Compter le nombre de caractères en excluant les espaces
+    nb_cars_sans_espaces = 0
+
+    for car in text:
+        if car != " ":
+            nb_cars_sans_espaces += 1
+
+    print(f"Nombre de caractères (espaces exclus) : {nb_cars_sans_espaces}")
+
+    # Compter le nombre de mots
+    nb_mots = count_words(text)
+    print(f"Nombre de mots dans le texte : {nb_mots}")
+
+    # Compter le nombre d'occurrences de la lettre 'a'
+    nb_occurences_a = count_letter(text, "a")
+    print(f"Nombre d'occurrences de la lettre a : {nb_occurences_a}")
 
 
 # Demander une chaîne de caractères initiale à l'utilisateur
@@ -121,7 +149,7 @@ if option == 1:
     print(resultat)
 
 elif option == 2:
-    pass
+    display_statistics(chaine)
 
 elif option == 3:
     lettre = input("Saisissez la lettre à compter dans le texte : ")
@@ -137,7 +165,7 @@ elif option == 5:
     print(resultat)
 
 elif option == 6:
-    resultat = is_palyndrome(chaine)
+    resultat = is_palindrome(chaine)
 
     if resultat:
         print(f"Le mot {chaine} est un palyndrome.")
